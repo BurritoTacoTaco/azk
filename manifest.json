@@ -1,0 +1,21 @@
+{
+  "name": "AZ-Kvíz body",
+  "short_name": "AZ-Kvíz",
+  "description": "Aplikace pro sledování bodů hráčů v AZ-Kvízu.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#222222",
+  "theme_color": "#54b0bd",
+  "icons": [
+    {
+      "src": "https://decko.ceskatelevize.cz/hry/az-kviz-ct/pkg/Poster__Facebook1200x675.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://decko.ceskatelevize.cz/hry/az-kviz-ct/pkg/Poster__Facebook1200x675.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
