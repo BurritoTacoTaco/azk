@@ -2,7 +2,7 @@
   "name": "AZ-Kvíz body",
   "short_name": "AZ-Kvíz",
   "description": "Aplikace pro sledování bodů hráčů v AZ-Kvízu.",
-  "start_url": "index.html",
+  "start_url": "/azk/index.html",
   "display": "standalone",
   "background_color": "#222222",
   "theme_color": "#54b0bd",
