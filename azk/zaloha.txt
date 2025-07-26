@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Počítadlo pro Dva</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #222;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .counter {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+
+    .player {
+      border: 2px solid #fff;
+      padding: 1rem;
+      border-radius: 1rem;
+      width: 45%;
+    }
+
+    .score {
+      font-size: 3rem;
+      margin: 1rem 0;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #09f;
+      color: #fff;
+      cursor: pointer;
+      margin: 0.3rem;
+    }
+
+    button:hover {
+      background-color: #06c;
+    }
+
+    .reset {
+      margin-top: 2rem;
+      background-color: #ff0000;
+    }
+
+    .reset:hover {
+      background-color: #c00;
+    }
+
+.hex-button1 {
+  clip-path: polygon(
+    50% 0%, 
+    93% 25%, 
+    93% 75%, 
+    50% 100%, 
+    7% 75%, 
+    7% 25%
+  );
+  width: 120px;
+  height: 100px;
+  background-color: #06c;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  margin: 1rem auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hex-button1:hover {
+  background-color: #0256ab;
+  transform: scale(1.05);
+}
+
+.hex-button1 span {
+  pointer-events: none; /* Zajišťuje, že klik jde na celé tlačítko */
+}
+.hex-button2 {
+  clip-path: polygon(
+    50% 0%, 
+    93% 25%, 
+    93% 75%, 
+    50% 100%, 
+    7% 75%, 
+    7% 25%
+  );
+  width: 120px;
+  height: 100px;
+  background-color: #ea8c2d;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  margin: 1rem auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hex-button2:hover {
+  background-color: #ed6a2c;
+  transform: scale(1.05);
+}
+
+.hex-button2 span {
+  pointer-events: none; /* Zajišťuje, že klik jde na celé tlačítko */
+}
+
+  </style>
+</head>
+<body>
+  <h1>Počítadlo pro Dva</h1>
+  <div class="counter">
+    <div class="player" id="player1">
+      <h2>Hráč 1</h2>
+      <button class="hex-button1" onclick="increment(1)">
+  <span id="score1">0</span>
+</button>
+      <button onclick="reset(1)">Reset</button>
+    </div>
+    <div class="player" id="player2">
+      <h2>Hráč 2</h2>
+      <button class="hex-button2" onclick="increment(2)">
+  <span id="score2">0</span>
+</button>
+      <button onclick="reset(2)">Reset</button>
+    </div>
+  </div>
+  <button class="reset" onclick="resetAll()">Reset Všechno</button>
+
+  <script>
+    let scores = [0, 0];
+
+    function increment(player) {
+      scores[player - 1]++;
+      updateScores();
+    }
+
+    function reset(player) {
+      scores[player - 1] = 0;
+      updateScores();
+    }
+
+    function resetAll() {
+      scores = [0, 0];
+      updateScores();
+    }
+
+    function updateScores() {
+      document.getElementById('score1').textContent = scores[0];
+      document.getElementById('score2').textContent = scores[1];
+    }
+
+    // Service worker registrace (PWA magic)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
